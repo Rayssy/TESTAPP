@@ -2,39 +2,242 @@
 <html lang="en">
 
 <head>
-    <title>Air Algérie Catering</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="description" content="Air Algérie Catering provides airline meal services, airport hospitality, and catering operations for Air Algérie flights." />
+    <title>Air Algérie Catering</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            color-scheme: light;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #102a43;
+            background: #f7f5f2;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #e9f3f0 0%, #f7f5f2 100%);
+        }
+
+        #root {
+            padding: 24px;
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #007f5f 0%, #d20000 100%);
+            color: white;
+            border-radius: 28px;
+            padding: 48px 40px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(5, 20, 35, 0.14);
+        }
+
+        .hero__title {
+            margin: 0;
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            line-height: 1.02;
+        }
+
+        .hero__subtitle {
+            margin: 0;
+            max-width: 780px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            opacity: 0.94;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.14);
+            color: white;
+            border-radius: 999px;
+            padding: 0.75rem 1rem;
+            font-weight: 600;
+            width: fit-content;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .section {
+            margin-top: 40px;
+            display: grid;
+            gap: 20px;
+        }
+
+        .grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .cards {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 28px;
+            border: 1px solid rgba(16, 42, 67, 0.08);
+            box-shadow: 0 20px 45px rgba(16, 42, 67, 0.06);
+        }
+
+        .card__title {
+            margin: 0 0 12px;
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        .card__text {
+            margin: 0;
+            line-height: 1.75;
+            color: #3e5061;
+        }
+
+        .service-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 12px;
+        }
+
+        .service-list li {
+            background: #ffffff;
+            border: 1px solid #dce7e4;
+            border-radius: 16px;
+            padding: 16px 18px;
+            font-weight: 500;
+            color: #1f3745;
+        }
+
+        .highlight {
+            color: #d20000;
+            font-weight: 700;
+        }
+
+        .footer {
+            margin-top: 48px;
+            padding: 24px;
+            border-radius: 24px;
+            background: #fff;
+            border: 1px solid rgba(16, 42, 67, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .footer p {
+            margin: 0;
+            color: #425466;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <header>
-        <h1>Air Algérie Catering</h1>
-        <p>Delivering quality inflight meals and airport services for Air Algérie passengers.</p>
-    </header>
+    <div id="root"></div>
 
-    <main>
-        <section>
-            <h2>What We Do</h2>
-            <p>Air Algérie Catering specializes in creating and delivering inflight meals, snacks, and beverages for Air Algérie flights. The company manages menu planning, food preparation, and safe transportation of meals to aircraft, ensuring guests receive fresh and well-presented dining options during their journey.</p>
-        </section>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+        const { useMemo } = React;
 
-        <section>
-            <h2>Our Services</h2>
-            <ul>
-                <li>Inflight catering services for domestic and international flights</li>
-                <li>Customized meal planning and menu development</li>
-                <li>Airport lounge and hospitality support</li>
-                <li>Food safety, quality control, and reliable logistics</li>
-            </ul>
-        </section>
+        function ServiceCard({ title, description }) {
+            return (
+                <article className="card">
+                    <h3 className="card__title">{title}</h3>
+                    <p className="card__text">{description}</p>
+                </article>
+            );
+        }
 
-        <section>
-            <h2>Why It Matters</h2>
-            <p>By combining culinary expertise with strict safety standards, Air Algérie Catering enhances the travel experience while supporting the airline's operational needs. The company focuses on reliable service delivery, passenger satisfaction, and consistent meal quality across all flights.</p>
-        </section>
-    </main>
+        function App() {
+            const services = useMemo(() => [
+                {
+                    title: 'Inflight Catering',
+                    description: 'Premium meal preparation and delivery for domestic and international flights, curated to match passenger preferences and dietary needs.'
+                },
+                {
+                    title: 'Menu Design',
+                    description: 'Seasonal menus, balanced nutrition, and culturally inspired dishes that reflect Air Algérie’s hospitality standards.'
+                },
+                {
+                    title: 'Airport Hospitality',
+                    description: 'Comfort-focused lounge support, airport meal handling, and logistics coordination for smooth boarding experiences.'
+                },
+                {
+                    title: 'Food Safety & Logistics',
+                    description: 'Strict quality control, certified food handling, and on-time delivery for every catering assignment.'
+                }
+            ], []);
+
+            return (
+                <main id="air-catering-app">
+                    <section className="hero">
+                        <div>
+                            <span className="badge">Trusted by Air Algérie</span>
+                            <h1 className="hero__title">Air Algérie Catering</h1>
+                            <p className="hero__subtitle">We deliver fresh, elegant inflight dining and airport hospitality that reflects the warmth of Algeria. Our catering experience keeps every flight on schedule while elevating the passenger journey.</p>
+                        </div>
+                        <div>
+                            <div className="card" style={{ background: 'rgba(255,255,255,0.18)', border: '1px solid rgba(255,255,255,0.22)', color: 'white' }}>
+                                <h3 className="card__title">Our commitment</h3>
+                                <p className="card__text">Reliability, quality and authentic service in every meal. From preparation to boarding, we make every moment feel seamless.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section className="section">
+                        <div className="card">
+                            <h2 className="card__title">What We Do</h2>
+                            <p className="card__text">Air Algérie Catering prepares and supplies inflight meals, snacks, and beverages for Air Algérie flights. Our team plans menus, kitchens meals safely, and coordinates delivery to aircraft with care and precision.</p>
+                        </div>
+                    </section>
+
+                    <section className="section cards">
+                        {services.map(service => (
+                            <ServiceCard key={service.title} title={service.title} description={service.description} />
+                        ))}
+                    </section>
+
+                    <section className="section card">
+                        <h2 className="card__title">Why Air Algérie Catering?</h2>
+                        <p className="card__text">We blend culinary craftsmanship with strict safety standards so passengers enjoy a memorable onboard experience. Our operations support Air Algérie’s commitment to quality service, consistency, and hospitality.</p>
+                    </section>
+
+                    <footer className="footer">
+                        <p><strong className="highlight">Air Algérie Catering</strong> is dedicated to serving fresh, safe, and culturally inspired meals on every flight.</p>
+                        <p>Built with React • Designed for modern aviation hospitality</p>
+                    </footer>
+                </main>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
 
 </html>
