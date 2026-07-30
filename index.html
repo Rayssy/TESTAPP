@@ -81,8 +81,17 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.22), transparent 30%);
+            background:
+                linear-gradient(120deg, rgba(15, 106, 68, 0.86) 0%, rgba(182, 29, 29, 0.72) 56%, rgba(217, 167, 43, 0.34) 100%),
+                url('logo.jpeg') center/cover no-repeat;
+            opacity: 0.3;
             pointer-events: none;
+            transform: scale(1.04);
+        }
+
+        .hero > * {
+            position: relative;
+            z-index: 1;
         }
 
         .hero__brand {
@@ -276,9 +285,6 @@
                     <section className="hero">
                         <div>
                             <div className="hero__brand">
-                                <span className="logo">
-                                    <img className="logo__mark" src="logo.jpeg" alt="Company logo" />
-                                </span>
                                 <span className="logo__label">Air Algérie Catering</span>
                             </div>
                             <span className="badge">Trusted by Air Algérie</span>
