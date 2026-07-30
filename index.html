@@ -33,8 +33,9 @@
             min-height: 100vh;
             position: relative;
             background:
-                radial-gradient(circle at top left, rgba(217, 167, 43, 0.2), transparent 32%),
-                linear-gradient(135deg, var(--cream-strong) 0%, var(--cream) 44%, #efe0bc 100%);
+                linear-gradient(135deg, rgba(247, 239, 227, 0.96) 0%, rgba(253, 248, 240, 0.96) 100%),
+                url('logo.jpeg') repeat;
+            background-size: auto, 140px 140px;
             overflow-x: hidden;
         }
 
@@ -42,14 +43,8 @@
             content: '';
             position: fixed;
             inset: 0;
-            background-image:
-                radial-gradient(circle at 20% 20%, rgba(15, 106, 68, 0.08) 0 8px, transparent 9px),
-                radial-gradient(circle at 80% 30%, rgba(182, 29, 29, 0.08) 0 7px, transparent 8px),
-                linear-gradient(120deg, transparent 0 45%, rgba(21, 52, 71, 0.05) 45% 55%, transparent 55% 100%);
-            background-size: 220px 220px, 260px 260px, 520px 520px;
-            opacity: 0.8;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.48) 0%, rgba(255, 255, 255, 0.12) 100%);
             pointer-events: none;
-            transform: rotate(-8deg);
             z-index: 0;
         }
 
